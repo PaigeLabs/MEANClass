@@ -1,0 +1,16 @@
+{
+  "name": "MEANClass",
+  "version": "0.0.1",
+  "description": "The application built during the MEAN Class",
+  "main": "server.js",
+  "dependencies": {
+    "express": "~4.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "clear && node server.js"
+  },
+  "author": "Lee Brandt",
+  "license": "ISC"
+}
