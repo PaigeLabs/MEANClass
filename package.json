@@ -4,7 +4,8 @@
   "description": "The application built during the MEAN Class",
   "main": "server.js",
   "dependencies": {
-    "express": "~4.4.2"
+    "express": "~4.4.2",
+    "ejs": "~1.0.0"
   },
   "devDependencies": {},
   "scripts": {
