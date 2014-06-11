@@ -1,13 +1,13 @@
 'use strict';
 
-var http = require('http');
+var express = require('express');
 
-var server = http.createServer(function(req, res){
-    res.writeHead(200, {'Content-Type':'text/plain'});
-    res.end('Hello world!');
+var server = express();
+
+server.get('/', function(req,res){
+    res.send(200, 'You got it!');
 });
 
 server.listen(3000, '0.0.0.0', function(){
-    console.log('server listening at 0.0.0.0:3000...');
-});
-
+    console.log('Express server listening on 0.0.0.0:3000...');
+})
