@@ -1,6 +1,7 @@
 'use strict';
 
 var express = require('express'),
+    path = require('path'),
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
     session = require('express-session'),
@@ -9,6 +10,8 @@ var express = require('express'),
     LocalStrategy = require('passport-local').Strategy;
 
 var server = express();
+server.set('views', path.join(__dirname, 'public'));
+
 server.engine('html', require('ejs').renderFile);
 server.set('view engine', 'html');
 server.use(bodyParser());
@@ -18,9 +21,12 @@ server.use(passport.initialize());
 server.use(passport.session());
 server.use(flash());
 
+server.use(express.static(path.join(__dirname, 'public')));
+
 passport.serializeUser(function(user, done){
     done(null, user);
 });
+
 passport.deserializeUser(function(user, done){
     done(null, user);
 });
