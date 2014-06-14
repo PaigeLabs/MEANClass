@@ -49,8 +49,8 @@ server.get('/login', function(req,res){
 
 server.post('/login', passport.authenticate('local',
     {
-        successRedirect: '/',
-        failureRedirect: '/login'
+        successRedirect: '/#',
+        failureRedirect: '/#login'
     }));
 
 var router = express.Router();
