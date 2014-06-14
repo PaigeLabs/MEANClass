@@ -26,22 +26,26 @@ passport.deserializeUser(function(user, done){
 });
 
 passport.use(new LocalStrategy(function(username, password, done){
+    console.log('i\'m authenticating');
     if(username==='leebrandt' && password === 'password'){
-        return done(null, user);
+        return done(null, {username:username});
     }
     return done(null, false, {message:'Unsuccessful!'});
 }));
 
+server.get('/', function(req,res){
+   res.render('index');
+});
+
 server.get('/login', function(req,res){
    res.render('login');
 });
-server.post('/login', passport.authenticate(
-    'local',
+
+server.post('/login', passport.authenticate('local',
     {
-        successRedirect:'/',
+        successRedirect: '/',
         failureRedirect: '/login'
-    })
-);
+    }));
 
 var router = express.Router();
 require('./app/routes')(router);
