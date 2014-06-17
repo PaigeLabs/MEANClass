@@ -4,8 +4,9 @@ var app = angular.module('mainApp', ['ngRoute'])
             .when('/', {
                 templateUrl: 'partials/home.html'
             })
-            .when('/login', {
-                templateUrl: 'partials/login.html'
+            .when('/speakers', {
+                templateUrl: 'partials/speakers.html',
+                controller: 'speakerCtrl'
             })
             .otherwise({
                 redirectTo: '/'
